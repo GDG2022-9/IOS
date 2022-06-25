@@ -30,6 +30,7 @@
 		1880CF6B7B3EC13A13E58F5D /* Pods_GDG.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A22EC5B494E21C9C215D97E2 /* Pods_GDG.framework */; };
 		2882DD832867383B008A9913 /* RegionCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882DD812867383B008A9913 /* RegionCategoryCollectionViewCell.swift */; };
 		2882DD842867383B008A9913 /* MyScheduleMeetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882DD822867383B008A9913 /* MyScheduleMeetCollectionViewCell.swift */; };
+		2882DD8928673ACA008A9913 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882DD8828673ACA008A9913 /* Constant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		04F85AC02866EF85003CD6CA /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		2882DD812867383B008A9913 /* RegionCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		2882DD822867383B008A9913 /* MyScheduleMeetCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyScheduleMeetCollectionViewCell.swift; sourceTree = "<group>"; };
+		2882DD8828673ACA008A9913 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		A22EC5B494E21C9C215D97E2 /* Pods_GDG.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GDG.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAF9E7209E07CCA974BF59B0 /* Pods-GDG.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GDG.debug.xcconfig"; path = "Target Support Files/Pods-GDG/Pods-GDG.debug.xcconfig"; sourceTree = "<group>"; };
 		EC882F9FD15B63C108E20DFC /* Pods-GDG.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GDG.release.xcconfig"; path = "Target Support Files/Pods-GDG/Pods-GDG.release.xcconfig"; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 			children = (
 				04BE870E2866E27600A12956 /* AppDelegate.swift */,
 				04BE87102866E27600A12956 /* SceneDelegate.swift */,
+				2882DD8728673ACA008A9913 /* Constant */,
 				048084AB2866F9DF00B2BF4B /* Extension */,
 				04BE87222866E3D900A12956 /* View */,
 				04BE87172866E27700A12956 /* Assets.xcassets */,
@@ -160,6 +163,14 @@
 				2882DD822867383B008A9913 /* MyScheduleMeetCollectionViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		2882DD8728673ACA008A9913 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				2882DD8828673ACA008A9913 /* Constant.swift */,
+			);
+			path = Constant;
 			sourceTree = "<group>";
 		};
 		A39C4433B59D86C83C7085AB /* Frameworks */ = {
@@ -301,6 +312,7 @@
 			files = (
 				2882DD842867383B008A9913 /* MyScheduleMeetCollectionViewCell.swift in Sources */,
 				048084AD2866FA1400B2BF4B /* Button.swift in Sources */,
+				2882DD8928673ACA008A9913 /* Constant.swift in Sources */,
 				048084AF2867128B00B2BF4B /* TextField.swift in Sources */,
 				04959F092867374C00A08FD3 /* Color.swift in Sources */,
 				04F85ABF2866EF7A003CD6CA /* SignInViewController.swift in Sources */,

@@ -118,6 +118,18 @@ class HomeViewController: UIViewController {
             make.leading.trailing.equalTo(view)
             make.height.equalTo(height)
         }
+        
+        view.addSubview(labelRegionCategory)
+        labelRegionCategory.snp.makeConstraints { make in
+            make.top.equalTo(viewAD.snp.bottom).offset(28)
+            make.leading.equalTo(view.snp.leading).offset(20)
+        }
+        view.addSubview(collectionViewRegionCategory)
+        collectionViewRegionCategory.snp.makeConstraints { make in
+            make.top.equalTo(labelRegionCategory.snp.bottom)
+            make.leading.trailing.equalTo(view)
+            make.height.equalTo(92)
+        }
                
     }
 }
