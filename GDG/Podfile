@@ -8,5 +8,6 @@ target 'GDG' do
   # Pods for GDG
   pod 'SnapKit', '~> 5.0.0'
   pod 'Alamofire', '~> 5.1'
+  pod 'FSCalendar'
 
 end

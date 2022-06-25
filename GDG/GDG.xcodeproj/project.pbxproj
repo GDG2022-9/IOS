@@ -42,6 +42,9 @@
 		28CB905D2867753B00B3DA57 /* MyScheduleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CB905C2867753B00B3DA57 /* MyScheduleCollectionViewCell.swift */; };
 		28CB905F2867769900B3DA57 /* MoreRealTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CB905E2867769900B3DA57 /* MoreRealTimeViewController.swift */; };
 		28CB9061286777CB00B3DA57 /* DetailMeetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CB9060286777CB00B3DA57 /* DetailMeetViewController.swift */; };
+		28CB906528677C2600B3DA57 /* DetailTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CB906428677C2600B3DA57 /* DetailTitleTableViewCell.swift */; };
+		28CB906728677FD400B3DA57 /* DetailBottomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CB906628677FD400B3DA57 /* DetailBottomTableViewCell.swift */; };
+		28CB90692867892A00B3DA57 /* RegisterScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CB90682867892A00B3DA57 /* RegisterScheduleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +84,9 @@
 		28CB905C2867753B00B3DA57 /* MyScheduleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScheduleCollectionViewCell.swift; sourceTree = "<group>"; };
 		28CB905E2867769900B3DA57 /* MoreRealTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreRealTimeViewController.swift; sourceTree = "<group>"; };
 		28CB9060286777CB00B3DA57 /* DetailMeetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMeetViewController.swift; sourceTree = "<group>"; };
+		28CB906428677C2600B3DA57 /* DetailTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTitleTableViewCell.swift; sourceTree = "<group>"; };
+		28CB906628677FD400B3DA57 /* DetailBottomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBottomTableViewCell.swift; sourceTree = "<group>"; };
+		28CB90682867892A00B3DA57 /* RegisterScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScheduleViewController.swift; sourceTree = "<group>"; };
 		A22EC5B494E21C9C215D97E2 /* Pods_GDG.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GDG.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAF9E7209E07CCA974BF59B0 /* Pods-GDG.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GDG.debug.xcconfig"; path = "Target Support Files/Pods-GDG/Pods-GDG.debug.xcconfig"; sourceTree = "<group>"; };
 		EC882F9FD15B63C108E20DFC /* Pods-GDG.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GDG.release.xcconfig"; path = "Target Support Files/Pods-GDG/Pods-GDG.release.xcconfig"; sourceTree = "<group>"; };
@@ -178,6 +184,7 @@
 				28CB905A28676F0D00B3DA57 /* MoreMyScheduleMeetViewController.swift */,
 				28CB905E2867769900B3DA57 /* MoreRealTimeViewController.swift */,
 				28CB9060286777CB00B3DA57 /* DetailMeetViewController.swift */,
+				28CB90682867892A00B3DA57 /* RegisterScheduleViewController.swift */,
 			);
 			path = ViewContorller;
 			sourceTree = "<group>";
@@ -185,10 +192,8 @@
 		2882DD802867383B008A9913 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				2882DD812867383B008A9913 /* RegionCategoryCollectionViewCell.swift */,
-				2882DD822867383B008A9913 /* MyScheduleMeetCollectionViewCell.swift */,
-				28BCEC7A28675BC100A50421 /* RealTimeCollectionViewCell.swift */,
-				28CB905C2867753B00B3DA57 /* MyScheduleCollectionViewCell.swift */,
+				28CB906328677BDD00B3DA57 /* TableView */,
+				28CB906228677BD100B3DA57 /* CollectionView */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -214,6 +219,26 @@
 			name = Font;
 			path = GDG/Font;
 			sourceTree = SOURCE_ROOT;
+		};
+		28CB906228677BD100B3DA57 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				2882DD812867383B008A9913 /* RegionCategoryCollectionViewCell.swift */,
+				2882DD822867383B008A9913 /* MyScheduleMeetCollectionViewCell.swift */,
+				28BCEC7A28675BC100A50421 /* RealTimeCollectionViewCell.swift */,
+				28CB905C2867753B00B3DA57 /* MyScheduleCollectionViewCell.swift */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		28CB906328677BDD00B3DA57 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				28CB906428677C2600B3DA57 /* DetailTitleTableViewCell.swift */,
+				28CB906628677FD400B3DA57 /* DetailBottomTableViewCell.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
 		};
 		A39C4433B59D86C83C7085AB /* Frameworks */ = {
 			isa = PBXGroup;
@@ -367,11 +392,14 @@
 				048084AF2867128B00B2BF4B /* TextField.swift in Sources */,
 				28CB905D2867753B00B3DA57 /* MyScheduleCollectionViewCell.swift in Sources */,
 				04959F092867374C00A08FD3 /* Color.swift in Sources */,
+				28CB906528677C2600B3DA57 /* DetailTitleTableViewCell.swift in Sources */,
 				04F85ABF2866EF7A003CD6CA /* SignInViewController.swift in Sources */,
 				04F85AC12866EF85003CD6CA /* SignUpViewController.swift in Sources */,
+				28CB90692867892A00B3DA57 /* RegisterScheduleViewController.swift in Sources */,
 				2882DD832867383B008A9913 /* RegionCategoryCollectionViewCell.swift in Sources */,
 				04BE872F2866E82D00A12956 /* MypageViewController.swift in Sources */,
 				044AD396286724B900A98E74 /* MeetViewController.swift in Sources */,
+				28CB906728677FD400B3DA57 /* DetailBottomTableViewCell.swift in Sources */,
 				28BCEC7B28675BC100A50421 /* RealTimeCollectionViewCell.swift in Sources */,
 				04BE870F2866E27600A12956 /* AppDelegate.swift in Sources */,
 				04BE87112866E27600A12956 /* SceneDelegate.swift in Sources */,

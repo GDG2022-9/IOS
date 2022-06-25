@@ -10,7 +10,7 @@ import SnapKit
 
 class HomeViewController: UIViewController {
     let arrayRegion = ["수도권", "충청권", "강원권", "경상권", "전라권"]
-    let boolHaveMySchedule : Bool = true
+    let boolHaveMySchedule : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +39,12 @@ class HomeViewController: UIViewController {
         }
         
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = false
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = true
+    }
     override func viewDidLayoutSubviews() {
         viewNoSchedule.setLineDot(view: viewNoSchedule, color: .mainGray, radius: 10)
     }
@@ -193,7 +198,9 @@ class HomeViewController: UIViewController {
         return view
     }()
     @objc func actionSetSchedule() {
-        print("클릭")
+        let nextVC = RegisterScheduleViewController()
+        nextVC.modalPresentationStyle = .overFullScreen
+        self.present(nextVC, animated: false)
     }
     
     let buttonMoreMyScheduleMeet :  UIButton = {
@@ -409,6 +416,18 @@ extension HomeViewController : UIScrollViewDelegate, UICollectionViewDelegate, U
             return CGSize(width: (UIScreen.main.bounds.width * 0.9), height: 220)
         } else {
             return CGSize(width: (UIScreen.main.bounds.width * 0.9), height: 220)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == collectionViewMyScheduleMeet {
+            let nextVC = DetailMeetViewController()
+            self.navigationController?.pushViewController(nextVC, animated: true)
+        } else if  collectionView == collectionViewRealTime{
+            let nextVC = DetailMeetViewController()
+            self.navigationController?.pushViewController(nextVC, animated: true)
+        } else {
+            
         }
     }
 }
