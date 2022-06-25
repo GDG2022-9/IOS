@@ -17,7 +17,11 @@ class RegionCategoryCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+    let viewContent : UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        return view
+    }()
     let imageViewRegion: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -27,11 +31,26 @@ class RegionCategoryCollectionViewCell: UICollectionViewCell {
     let labelRegionName : UILabel = {
         let label = UILabel()
         label.text = ""
+        label.textColor = .mainBlack
         label.font = UIFont(name: Constant.fontNotoSansKRRegular, size: 14)
         return label
     }()
     
     func setContentView() {
+        contentView.addSubview(viewContent)
+        viewContent.snp.makeConstraints { make in
+            make.edges.equalTo(contentView)
+        }
         
+        viewContent.addSubview(imageViewRegion)
+        imageViewRegion.snp.makeConstraints { make in
+            make.centerX.top.equalTo(viewContent)
+            make.height.width.equalTo(32)
+        }
+        
+        viewContent.addSubview(labelRegionName)
+        labelRegionName.snp.makeConstraints { make in
+            make.bottom.leading.trailing.equalTo(viewContent)
+        }
     }
 }

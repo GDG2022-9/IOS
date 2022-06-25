@@ -23,7 +23,17 @@ class HomeViewController: UIViewController {
         label.font = UIFont(name: Constant.fontNotoSansKRBold, size: 20)
         return label
     }()
-
+    let collectionViewRegionCategory: UICollectionView = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .horizontal
+        flowLayout.minimumLineSpacing = 10
+        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 22, bottom: 0, right: 22)
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.backgroundColor = UIColor.clear
+        collectionView.showsHorizontalScrollIndicator = false
+        return collectionView
+    }()
     
     //MARK: 나의 여행 일정에 맞는 모임
     let labelMyScheduleMeet : UILabel = {
@@ -89,5 +99,35 @@ class HomeViewController: UIViewController {
             make.leading.equalTo(view.snp.leading).offset(20)
         }
         
+        collectionViewRegionCategory.delegate = self
+        collectionViewRegionCategory.dataSource = self
+        collectionViewRegionCategory.register(RegionCategoryCollectionViewCell.self, forCellWithReuseIdentifier: RegionCategoryCollectionViewCell.resueidentifier)
+        view.addSubview(collectionViewRegionCategory)
+        collectionViewRegionCategory.snp.makeConstraints { make in
+            make.leading.trailing.equalTo(view)
+            make.top.equalTo(labelRegionCategory.snp.bottom).offset(16)
+            make.height.equalTo(92)
+        }
+        
     }
+}
+
+extension HomeViewController : UIScrollViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if collectionView == collectionViewRegionCategory {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RegionCategoryCollectionViewCell.resueidentifier, for: indexPath) as? RegionCategoryCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            
+            return cell
+        }  else {
+            return UICollectionViewCell()
+        }
+    }
+    
+    
 }
