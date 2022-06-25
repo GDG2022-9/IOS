@@ -72,6 +72,9 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="로그인"/>
+                                <connections>
+                                    <segue destination="U2w-ES-afj" kind="show" id="jjT-KK-b17"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -113,6 +116,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iqw-g6-cR5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="696" y="155"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="e3K-7U-prM">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="U2w-ES-afj" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="sz7-pJ-CYU"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RV7-AK-AM9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="639" y="304"/>
         </scene>
     </scenes>
     <resources>

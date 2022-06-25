@@ -90,7 +90,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="Nuo-eJ-lWH">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="udp-go-c0f" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="udp-go-c0f" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="I4r-U9-gOd">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
