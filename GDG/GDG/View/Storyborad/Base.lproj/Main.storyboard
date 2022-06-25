@@ -6,11 +6,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--홈-->
         <scene sceneID="tI3-IG-LTm">
             <objects>
                 <navigationController id="oml-Ln-PQ3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="house.fill" catalog="system" id="67s-Nk-aHl"/>
+                    <tabBarItem key="tabBarItem" title="홈" image="home" selectedImage="active-1" id="67s-Nk-aHl"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="PL2-m2-OUc">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -33,11 +33,11 @@
             </objects>
             <point key="canvasLocation" x="3600" y="335"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--마이페이지-->
         <scene sceneID="BuE-bZ-glJ">
             <objects>
                 <navigationController id="nDi-Ah-c60" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="person.fill" catalog="system" id="3nS-Qj-nZW"/>
+                    <tabBarItem key="tabBarItem" title="마이페이지" image="inactive" selectedImage="active" id="3nS-Qj-nZW"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="R0J-cH-5Ml">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -60,11 +60,11 @@
             </objects>
             <point key="canvasLocation" x="3590" y="1975"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--밋트 등록-->
         <scene sceneID="l5Y-G4-6rY">
             <objects>
                 <navigationController id="5EJ-E9-Vit" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="squareshape" catalog="system" id="0bA-qd-1C9"/>
+                    <tabBarItem key="tabBarItem" title="밋트 등록" image="meet" selectedImage="meet" id="0bA-qd-1C9"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Nzt-J9-bCl">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -96,6 +96,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="oml-Ln-PQ3" kind="relationship" relationship="viewControllers" id="DMh-nb-vWm"/>
@@ -109,8 +110,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="house.fill" catalog="system" width="128" height="106"/>
-        <image name="person.fill" catalog="system" width="128" height="120"/>
-        <image name="squareshape" catalog="system" width="128" height="114"/>
+        <image name="active" width="24" height="24"/>
+        <image name="active-1" width="24" height="24"/>
+        <image name="home" width="24" height="24"/>
+        <image name="inactive" width="24" height="24"/>
+        <image name="meet" width="24" height="24"/>
     </resources>
 </document>

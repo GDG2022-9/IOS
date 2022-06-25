@@ -14,7 +14,7 @@ class MypageViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         setView()
         setUserInfo()
-        //setMyScheduleMeet()
+        setMyScheduleMeet()
         
         self.navigationItem.title = "마이페이지"
         // Do any additional setup after loading the view.
@@ -45,7 +45,7 @@ class MypageViewController: UIViewController, UIScrollViewDelegate {
         
         let imageUser : UIImageView = {
             let imageView = UIImageView()
-            imageView.image = UIImage(systemName: "plus")
+            imageView.image = UIImage(named: "profile_salt")
             imageView.contentMode = .scaleAspectFit
             return imageView
         }()
@@ -76,6 +76,7 @@ class MypageViewController: UIViewController, UIScrollViewDelegate {
     let divider : UIView = {
         let div = UIView()
         div.layer.borderWidth = 0.5
+        div.layer.borderColor = UIColor.mainGray.cgColor
         return div
     }()
 
@@ -93,7 +94,7 @@ class MypageViewController: UIViewController, UIScrollViewDelegate {
             make.top.equalTo(viewUser.snp.bottom).offset(0)
             make.centerX.equalTo(viewContent)
             make.width.equalTo(320)
-            make.height.equalTo(1)
+            make.height.equalTo(0.5)
         }
     }
     
@@ -160,26 +161,23 @@ class MypageViewController: UIViewController, UIScrollViewDelegate {
     func setMyScheduleMeet() {
         viewContent.addSubview(labelMyScheduleMeet)
         labelMyScheduleMeet.snp.makeConstraints { make in
-            make.top.equalToSuperview()
+            make.leading.equalTo(divider)
+            make.top.equalTo(divider.snp.bottom).offset(24)
         }
-//        labelMyScheduleMeet.snp.makeConstraints { make in
-//            make.leading.equalTo(UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0))
-//            make.top.equalTo(UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0))
-//        }
-//
-//
-//        viewContent.addSubview(viewBackNoSchedule)
-//        viewBackNoSchedule.snp.makeConstraints { make in
-//            make.centerX.equalTo(viewContent)
-//            make.top.equalTo(labelMyScheduleMeet.snp.bottom).offset(16)
-//            make.width.equalTo(UIScreen.main.bounds.width * 0.9)
-//            make.height.equalTo(112)
-//        }
-//
-//        viewContent.addSubview(viewNoSchedule)
-//        viewNoSchedule.snp.makeConstraints { make in
-//            make.edges.equalTo(viewBackNoSchedule)
-//        }
+
+
+        viewContent.addSubview(viewBackNoSchedule)
+        viewBackNoSchedule.snp.makeConstraints { make in
+            make.centerX.equalTo(viewContent)
+            make.top.equalTo(labelMyScheduleMeet.snp.bottom).offset(16)
+            make.width.equalTo(UIScreen.main.bounds.width * 0.9)
+            make.height.equalTo(112)
+        }
+
+        viewContent.addSubview(viewNoSchedule)
+        viewNoSchedule.snp.makeConstraints { make in
+            make.edges.equalTo(viewBackNoSchedule)
+        }
     }
 
     /*

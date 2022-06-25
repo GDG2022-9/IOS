@@ -41,7 +41,9 @@ class HomeViewController: UIViewController {
             labelMyScheduleDate.text = "\(firstDay) ~ \(lastDay)"
 
         }
-        
+
+        self.tabBarController?.tabBar.tintColor = .mainBlack
+
         navigationItem.titleView = imageViewLogo
         setScrollView()
         setAD()
