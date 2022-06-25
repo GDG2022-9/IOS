@@ -12,6 +12,8 @@
 		048084AD2866FA1400B2BF4B /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048084AC2866FA1400B2BF4B /* Button.swift */; };
 		048084AF2867128B00B2BF4B /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048084AE2867128B00B2BF4B /* TextField.swift */; };
 		048084B12867130F00B2BF4B /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048084B02867130F00B2BF4B /* UIView.swift */; };
+		04959F092867374C00A08FD3 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04959F082867374C00A08FD3 /* Color.swift */; };
+		04959F0B2867375200A08FD3 /* UiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04959F0A2867375200A08FD3 /* UiViewController.swift */; };
 		04BE870F2866E27600A12956 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE870E2866E27600A12956 /* AppDelegate.swift */; };
 		04BE87112866E27600A12956 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE87102866E27600A12956 /* SceneDelegate.swift */; };
 		04BE87162866E27600A12956 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04BE87142866E27600A12956 /* Main.storyboard */; };
@@ -34,6 +36,8 @@
 		048084AC2866FA1400B2BF4B /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		048084AE2867128B00B2BF4B /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		048084B02867130F00B2BF4B /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		04959F082867374C00A08FD3 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		04959F0A2867375200A08FD3 /* UiViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UiViewController.swift; sourceTree = "<group>"; };
 		04BE870B2866E27600A12956 /* GDG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GDG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04BE870E2866E27600A12956 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04BE87102866E27600A12956 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +73,8 @@
 		048084AB2866F9DF00B2BF4B /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				04959F0A2867375200A08FD3 /* UiViewController.swift */,
+				04959F082867374C00A08FD3 /* Color.swift */,
 				048084AC2866FA1400B2BF4B /* Button.swift */,
 				048084AE2867128B00B2BF4B /* TextField.swift */,
 				048084B02867130F00B2BF4B /* UIView.swift */,
@@ -281,6 +287,7 @@
 			files = (
 				048084AD2866FA1400B2BF4B /* Button.swift in Sources */,
 				048084AF2867128B00B2BF4B /* TextField.swift in Sources */,
+				04959F092867374C00A08FD3 /* Color.swift in Sources */,
 				04F85ABF2866EF7A003CD6CA /* SignInViewController.swift in Sources */,
 				04F85AC12866EF85003CD6CA /* SignUpViewController.swift in Sources */,
 				04BE872F2866E82D00A12956 /* MypageViewController.swift in Sources */,
@@ -288,6 +295,7 @@
 				04BE870F2866E27600A12956 /* AppDelegate.swift in Sources */,
 				04BE87112866E27600A12956 /* SceneDelegate.swift in Sources */,
 				048084B12867130F00B2BF4B /* UIView.swift in Sources */,
+				04959F0B2867375200A08FD3 /* UiViewController.swift in Sources */,
 				04BE87292866E73200A12956 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
