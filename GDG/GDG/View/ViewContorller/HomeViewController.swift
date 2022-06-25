@@ -38,14 +38,18 @@ class HomeViewController: UIViewController {
             collectionViewMyScheduleMeet.alpha = 0
         }
         
+        NotificationCenter.default.addObserver(self, selector: #selector(buttonHidden), name: Notification.Name("middleButtonHidden"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(buttonApper), name: Notification.Name("middleButtonAppear"), object: nil)
     }
-    override func viewWillAppear(_ animated: Bool) {
-        tabBarController?.tabBar.isHidden = false
+    
+    @objc func buttonHidden() {
+        self.tabBarController?.tabBar.isHidden = true
     }
-    override func viewWillDisappear(_ animated: Bool) {
-        tabBarController?.tabBar.isHidden = true
+    @objc func buttonApper() {
+        self.tabBarController?.tabBar.isHidden = false
     }
-    override func viewDidLayoutSubviews() {
+    
+   override func viewDidLayoutSubviews() {
         viewNoSchedule.setLineDot(view: viewNoSchedule, color: .mainGray, radius: 10)
     }
     let imageViewLogo : UIImageView = {

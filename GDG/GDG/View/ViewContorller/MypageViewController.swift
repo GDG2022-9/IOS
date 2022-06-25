@@ -19,12 +19,7 @@ class MypageViewController: UIViewController, UIScrollViewDelegate {
         self.navigationItem.title = "마이페이지"
         // Do any additional setup after loading the view.
     }
-    override func viewWillAppear(_ animated: Bool) {
-        tabBarController?.tabBar.isHidden = false
-    }
-    override func viewDidAppear(_ animated: Bool) {
-        tabBarController?.tabBar.isHidden = true
-    }
+   
     override func viewDidLayoutSubviews() {
         viewNoSchedule.setLineDot(view: viewNoSchedule, color: .mainGray, radius: 10)
     }

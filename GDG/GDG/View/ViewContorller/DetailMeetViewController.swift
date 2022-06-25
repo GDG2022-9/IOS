@@ -15,7 +15,12 @@ class DetailMeetViewController: UIViewController {
         setNavigation()
         setTableView()
     }
-    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.post(name: Notification.Name("middleButtonAppear"), object: nil)
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.post(name: Notification.Name("middleButtonHidden"), object: nil)
+    }
     //MARK: navigation
     func setNavigation() {
         navigationItem.title = "밋트"
