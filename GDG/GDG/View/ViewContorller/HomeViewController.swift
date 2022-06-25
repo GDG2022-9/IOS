@@ -9,58 +9,276 @@ import UIKit
 import SnapKit
 
 class HomeViewController: UIViewController {
-    //MARK: 여행 일정 마이 뷰
+    let arrayRegion = ["수도권", "충청권", "강원권", "경상권", "전라권"]
+    let boolHaveMySchedule : Bool = false
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setScrollView()
+        setAD()
+        setRegionCategory()
+        setMyScheduleMeet()
+       setRealTime()
+        
+        if boolHaveMySchedule {
+            viewNoSchedule.alpha = 0
+            buttonMoreMyScheduleMeet.alpha = 1
+            labelMyScheduleText.alpha = 1
+            labelMyScheduleDate.alpha = 1
+            labelMyScheduleDays.alpha = 1
+            collectionViewMyScheduleMeet.alpha = 1
+        } else {
+            viewNoSchedule.alpha = 1
+            buttonMoreMyScheduleMeet.alpha = 0
+            labelMyScheduleText.alpha = 0
+            labelMyScheduleDate.alpha = 0
+            labelMyScheduleDays.alpha = 0
+            collectionViewMyScheduleMeet.alpha = 0
+        }
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        viewNoSchedule.setLineDot(view: viewNoSchedule, color: .mainGray, radius: 10)
+    }
+    //MARK: 스크롤뷰 구현
+    let scrollViewContent : UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.isScrollEnabled = true
+        return scrollView
+    }()
+    
+    let viewContent = UIView()
+
+    func setScrollView() {
+        scrollViewContent.delegate = self
+        view.addSubview(scrollViewContent)
+        scrollViewContent.snp.makeConstraints { make in
+            make.leading.trailing.bottom.equalTo(view)
+            make.top.equalTo(view).offset(100)
+        }
+        scrollViewContent.addSubview(viewContent)
+        viewContent.snp.makeConstraints { make in
+            make.edges.equalTo(scrollViewContent)
+            make.height.equalTo(1500)
+            make.width.equalTo(UIScreen.main.bounds.width)
+        }
+    }
+    //MARK: 광고 뷰
     let viewAD: UIView = {
         let view = UIView()
         view.backgroundColor = .gray
         return view
     }()
+    
+    func setAD() {
+        viewContent.addSubview(viewAD)
+        let height = view.frame.width/2
+        viewAD.snp.makeConstraints { make in
+            make.leading.trailing.equalTo(view)
+            make.height.equalTo(height)
+        }
+    }
+    
     //MARK: 지역 카테고리 컬렉션 뷰
     let labelRegionCategory : UILabel = {
         let label = UILabel()
-        label.text = "지역 카테고리"
-        label.textColor = .black
-        label.font = UIFont(name: Constant.fontNotoSansKRBold, size: 20)
+        label.text = "밋트 지역 고르기"
+        label.textColor = .mainBlack
+        label.font = UIFont(name: Constant.fontNotoSansKRBold, size: 16)
         return label
     }()
     let collectionViewRegionCategory: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
-        flowLayout.minimumLineSpacing = 10
-        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 22, bottom: 0, right: 22)
+        flowLayout.minimumLineSpacing = 28
+        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 29, bottom: 0, right: 29)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = UIColor.clear
         collectionView.showsHorizontalScrollIndicator = false
         return collectionView
     }()
-    
+    func setRegionCategory() {
+        //MARK: addSubview 밋트 지역 고르기
+        viewContent.addSubview(labelRegionCategory)
+        labelRegionCategory.snp.makeConstraints { make in
+            make.top.equalTo(viewAD.snp.bottom).offset(28)
+            make.leading.equalTo(view.snp.leading).offset(20)
+        }
+        
+        collectionViewRegionCategory.delegate = self
+        collectionViewRegionCategory.dataSource = self
+        collectionViewRegionCategory.register(RegionCategoryCollectionViewCell.self, forCellWithReuseIdentifier: RegionCategoryCollectionViewCell.resueidentifier)
+        viewContent.addSubview(collectionViewRegionCategory)
+        collectionViewRegionCategory.snp.makeConstraints { make in
+            make.leading.trailing.equalTo(view)
+            make.top.equalTo(labelRegionCategory.snp.bottom).offset(16)
+            make.height.equalTo(92)
+        }
+        
+    }
     //MARK: 나의 여행 일정에 맞는 모임
     let labelMyScheduleMeet : UILabel = {
         let label = UILabel()
         label.text = "나의 여행 일정에 맞는 밋트"
-        label.textColor = .black
-        label.font = UIFont(name: Constant.fontNotoSansKRBold, size: 20)
+        label.textColor = .mainBlack
+        label.font = UIFont(name: Constant.fontNotoSansKRBold, size: 16)
         return label
     }()
+    
+    let viewBackNoSchedule : UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.layer.cornerRadius = 10
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOpacity = 0.15
+        view.layer.shadowRadius = 10
+        return view
+    }()
+    
+    let viewNoSchedule : UIView = {
+        let view = UIView()
+        
+        let imageView = UIImageView()
+        imageView.image = UIImage(systemName: "plus")
+        imageView.contentMode = .scaleAspectFit
+        
+        let label = UILabel()
+        label.text = "나의 여행 일정을 등록해주세요.\n일정에 맞는 밋트를 알려드릴께요!"
+        label.textColor = .mainGray
+        label.font = UIFont(name: Constant.fontNotoSansKRRegular, size: 14)
+        label.textAlignment = .center
+        
+        let button = UIButton()
+        button.addTarget(self, action: #selector(actionSetSchedule), for: .touchUpInside)
+        
+        view.addSubview(imageView)
+        imageView.snp.makeConstraints { make in
+            make.centerX.equalTo(view)
+            make.top.equalTo(view).offset(20)
+            make.width.height.equalTo(16)
+        }
+        view.addSubview(label)
+        label.snp.makeConstraints { make in
+            make.centerX.equalTo(imageView)
+            make.bottom.equalTo(view).offset(-20)
+        }
+        
+        view.addSubview(button)
+        button.snp.makeConstraints { make in
+            make.edges.equalTo(view)
+        }
+        
+        return view
+    }()
+    @objc func actionSetSchedule() {
+        print("클릭")
+    }
     
     let buttonMoreMyScheduleMeet :  UIButton = {
         let button = UIButton()
         button.addTarget(self, action: #selector(actionGoMoreMySchedulMeet), for: .touchUpInside)
-        button.setTitle("더 보기", for: .normal)
-        button.setTitleColor(.gray, for: .normal)
+        button.setTitle("더보기", for: .normal)
+        button.titleLabel?.font = UIFont(name: Constant.fontNotoSansKRBold, size: 12)
+        button.setTitleColor(.mainGray, for: .normal)
         return button
     }()
     @objc func actionGoMoreMySchedulMeet() {
         print("더보기")
     }
     
-    let labelMySchedule : UILabel = {
+    let labelMyScheduleText : UILabel = {
         let label = UILabel()
-        label.text = "여행 일정 2022.06.25(토) ~ 06.28(월) 3일"
+        label.text = "여행 일정"
+        label.textColor = .mainBlack
+        label.font = UIFont(name: Constant.fontNotoSansKRBold, size: 14)
         return label
     }()
-
+    let labelMyScheduleDate : UILabel = {
+        let label = UILabel()
+        label.text = "2022.06.25(토) ~ 06.28(월)"
+        label.textColor = .mainBlack
+        label.font = UIFont(name: Constant.fontNotoSansKRRegular, size: 14)
+        return label
+    }()
+    let labelMyScheduleDays : UILabel = {
+        let label = UILabel()
+        label.text = "3일"
+        label.textColor = .mainColor
+        label.font = UIFont(name: Constant.fontNotoSansKRBold, size: 14)
+        return label
+    }()
+    
+    let collectionViewMyScheduleMeet : UICollectionView = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .horizontal
+        flowLayout.minimumLineSpacing = 8
+        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.backgroundColor = UIColor.clear
+        collectionView.showsHorizontalScrollIndicator = false
+        return collectionView
+    }()
+    //MARK: addSubview 나의 여행 일정에 맞는 밋트
+    func setMyScheduleMeet() {
+        viewContent.addSubview(labelMyScheduleMeet)
+        labelMyScheduleMeet.snp.makeConstraints { make in
+            make.leading.equalTo(labelRegionCategory)
+            make.top.equalTo(collectionViewRegionCategory.snp.bottom).offset(24)
+        }
+        
+        
+        viewContent.addSubview(viewBackNoSchedule)
+        viewBackNoSchedule.snp.makeConstraints { make in
+            make.centerX.equalTo(viewContent)
+            make.top.equalTo(labelMyScheduleMeet.snp.bottom).offset(16)
+            make.width.equalTo(UIScreen.main.bounds.width * 0.9)
+            make.height.equalTo(112)
+        }
+        
+        viewContent.addSubview(viewNoSchedule)
+        viewNoSchedule.snp.makeConstraints { make in
+            make.edges.equalTo(viewBackNoSchedule)
+        }
+        
+        viewContent.addSubview(buttonMoreMyScheduleMeet)
+        buttonMoreMyScheduleMeet.snp.makeConstraints { make in
+            make.trailing.equalTo(viewContent).offset(-20)
+            make.centerY.equalTo(labelMyScheduleMeet)
+            make.width.equalTo(40)
+            make.height.equalTo(16)
+        }
+        
+        viewContent.addSubview(labelMyScheduleText)
+        labelMyScheduleText.snp.makeConstraints { make in
+            make.leading.equalTo(viewContent).offset(28)
+            make.top.equalTo(labelMyScheduleMeet.snp.bottom).offset(16)
+        }
+        viewContent.addSubview(labelMyScheduleDate)
+        labelMyScheduleDate.snp.makeConstraints { make in
+            make.leading.equalTo(labelMyScheduleText.snp.trailing).offset(12)
+            make.centerY.equalTo(labelMyScheduleText)
+        }
+        viewContent.addSubview(labelMyScheduleDays)
+        labelMyScheduleDays.snp.makeConstraints { make in
+            make.leading.equalTo(labelMyScheduleDate.snp.trailing).offset(8)
+            make.centerY.equalTo(labelMyScheduleText)
+        }
+        
+        collectionViewMyScheduleMeet.delegate = self
+        collectionViewMyScheduleMeet.dataSource = self
+        collectionViewMyScheduleMeet.register(MyScheduleMeetCollectionViewCell.self, forCellWithReuseIdentifier: MyScheduleMeetCollectionViewCell.resueidentifier)
+        viewContent.addSubview(collectionViewMyScheduleMeet)
+        collectionViewMyScheduleMeet.snp.makeConstraints { make in
+            make.leading.trailing.equalTo(viewContent)
+            make.top.equalTo(labelMyScheduleText.snp.bottom)
+            make.height.equalTo(252)
+        }
+    }
     
     //MARK: 실시간 여행 모임
     let labelRealTimeMeet : UILabel = {
@@ -80,41 +298,55 @@ class HomeViewController: UIViewController {
     @objc func actionGoMoreRealTimeMeet() {
         print("더보기")
     }
-    
+    let collectionViewRealTime : UICollectionView = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .vertical
+        flowLayout.minimumLineSpacing = 16
+        flowLayout.sectionInset = UIEdgeInsets(top: 16, left: 0, bottom: 16, right: 0)
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.backgroundColor = UIColor.clear
+        collectionView.showsHorizontalScrollIndicator = false
+        return collectionView
+    }()
 
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    //MARK: addSubView 실시간 미트
+    func setRealTime() {
+        viewContent.addSubview(labelRealTimeMeet)
+        labelRealTimeMeet.snp.makeConstraints { make in
+            make.leading.equalTo(labelRegionCategory)
+            make.top.equalTo(collectionViewMyScheduleMeet.snp.bottom).offset(24)
+        }
+        
+        viewContent.addSubview(buttonMoreRealTimeMeet)
+        buttonMoreRealTimeMeet.snp.makeConstraints { make in
+            make.centerY.equalTo(labelRealTimeMeet)
+            make.trailing.equalTo(viewContent).offset(-20)
+        }
 
-        view.addSubview(viewAD)
-        let height = view.frame.width/2
-        viewAD.snp.makeConstraints { make in
-            make.leading.trailing.equalTo(view)
-            make.height.equalTo(height)
+        collectionViewRealTime.delegate = self
+        collectionViewRealTime.dataSource = self
+        collectionViewRealTime.register(RealTimeCollectionViewCell.self, forCellWithReuseIdentifier: RealTimeCollectionViewCell.resueidentifier)
+        viewContent.addSubview(collectionViewRealTime)
+        collectionViewRealTime.snp.makeConstraints { make in
+            make.top.equalTo(labelRealTimeMeet.snp.bottom)
+            make.leading.trailing.equalTo(viewContent)
+            make.height.equalTo(730)
         }
-        
-        view.addSubview(labelRegionCategory)
-        labelRegionCategory.snp.makeConstraints { make in
-            make.top.equalTo(viewAD.snp.bottom).offset(28)
-            make.leading.equalTo(view.snp.leading).offset(20)
-        }
-        
-        collectionViewRegionCategory.delegate = self
-        collectionViewRegionCategory.dataSource = self
-        collectionViewRegionCategory.register(RegionCategoryCollectionViewCell.self, forCellWithReuseIdentifier: RegionCategoryCollectionViewCell.resueidentifier)
-        view.addSubview(collectionViewRegionCategory)
-        collectionViewRegionCategory.snp.makeConstraints { make in
-            make.leading.trailing.equalTo(view)
-            make.top.equalTo(labelRegionCategory.snp.bottom).offset(16)
-            make.height.equalTo(92)
-        }
-        
     }
+    
+    
 }
 
 extension HomeViewController : UIScrollViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        if collectionView == collectionViewRegionCategory {
+            return 5
+        } else if collectionView == collectionViewMyScheduleMeet {
+            return 5
+        } else {
+            return 3
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -122,12 +354,39 @@ extension HomeViewController : UIScrollViewDelegate, UICollectionViewDelegate, U
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RegionCategoryCollectionViewCell.resueidentifier, for: indexPath) as? RegionCategoryCollectionViewCell else {
                 return UICollectionViewCell()
             }
-            
+            cell.labelRegionName.text = arrayRegion[indexPath.row]
             return cell
-        }  else {
-            return UICollectionViewCell()
+        } else if collectionView == collectionViewMyScheduleMeet {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyScheduleMeetCollectionViewCell.resueidentifier, for: indexPath) as? MyScheduleMeetCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            cell.contentView.layer.cornerRadius = 10
+            cell.layer.shadowColor = UIColor.black.cgColor
+            cell.layer.shadowOpacity = 0.15
+            cell.layer.shadowRadius = 10
+            cell.contentView.clipsToBounds = true
+            return cell
+        }
+        else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RealTimeCollectionViewCell.resueidentifier, for: indexPath) as? RealTimeCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            cell.contentView.layer.cornerRadius = 10
+            cell.layer.shadowColor = UIColor.black.cgColor
+            cell.layer.shadowOpacity = 0.15
+            cell.layer.shadowRadius = 10
+            cell.contentView.clipsToBounds = true
+            return cell
         }
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if collectionView == collectionViewRegionCategory {
+            return CGSize(width: (UIScreen.main.bounds.width - 170)/5, height: 60)
+        } else if collectionView == collectionViewMyScheduleMeet {
+            return CGSize(width: (UIScreen.main.bounds.width * 0.9), height: 220)
+        } else {
+            return CGSize(width: (UIScreen.main.bounds.width * 0.9), height: 220)
+        }
+    }
 }

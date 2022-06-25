@@ -12,6 +12,8 @@ class RegionCategoryCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setContentView()
+        
     }
     
     required init?(coder: NSCoder) {
@@ -19,7 +21,7 @@ class RegionCategoryCollectionViewCell: UICollectionViewCell {
     }
     let viewContent : UIView = {
         let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = .red
         return view
     }()
     let imageViewRegion: UIImageView = {
@@ -31,6 +33,7 @@ class RegionCategoryCollectionViewCell: UICollectionViewCell {
     let labelRegionName : UILabel = {
         let label = UILabel()
         label.text = ""
+        label.textAlignment = .center
         label.textColor = .mainBlack
         label.font = UIFont(name: Constant.fontNotoSansKRRegular, size: 14)
         return label

@@ -7,8 +7,8 @@
 
 import UIKit
 
-class MyScheduleMeetCollectionViewCell: UICollectionViewCell {
-    static let resueidentifier = "MyScheduleMeetCollectionViewCell"
+class RealTimeCollectionViewCell: UICollectionViewCell {
+    static let resueidentifier = "RealTimeCollectionViewCell"
     
     override init(frame: CGRect) {
         super.init(frame: frame)

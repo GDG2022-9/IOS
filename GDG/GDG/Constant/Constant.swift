@@ -26,10 +26,11 @@ struct Constant {
     static var userPhoneHeight: CGFloat = 0
     static var userPhoneWidth : CGFloat = 0
     
-    static let fontNotoSansKRBlack = "fontNotoSansKR-Black"
-    static let fontNotoSansKRBold = "fontNotoSansKR-Bold"
-    static let fontNotoSansKRLight = "fontNotoSansKR-Light"
-    static let fontNotoSansKRMedium = "fontNotoSansKR-Medium"
-    static let fontNotoSansKRRegular = "fontNotoSansKR-Regular"
-    static let fontNotoSansKRThin = "fontNotoSansKR-Thin"
+    static let fontNotoSansKRBlack = "NotoSansKR-Black"
+    static let fontNotoSansKRBold = "NotoSansKR-Bold"
+    static let fontNotoSansKRLight = "NotoSansKR-Light"
+    static let fontNotoSansKRMedium = "NotoSansKR-Medium"
+    static let fontNotoSansKRRegular = "NotoSansKR-Regular"
+    static let fontNotoSansKRThin = "NotoSansKR-Thin"
 }
+

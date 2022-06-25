@@ -37,6 +37,7 @@
 		2882DD9628673B64008A9913 /* NotoSansKR-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2882DD9028673B64008A9913 /* NotoSansKR-Black.otf */; };
 		2882DD9728673B64008A9913 /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2882DD9128673B64008A9913 /* NotoSansKR-Medium.otf */; };
 		2882DD9828673B64008A9913 /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2882DD9228673B64008A9913 /* NotoSansKR-Regular.otf */; };
+		28BCEC7B28675BC100A50421 /* RealTimeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BCEC7A28675BC100A50421 /* RealTimeCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 		2882DD9028673B64008A9913 /* NotoSansKR-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Black.otf"; sourceTree = "<group>"; };
 		2882DD9128673B64008A9913 /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
 		2882DD9228673B64008A9913 /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
+		28BCEC7A28675BC100A50421 /* RealTimeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeCollectionViewCell.swift; sourceTree = "<group>"; };
 		A22EC5B494E21C9C215D97E2 /* Pods_GDG.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GDG.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAF9E7209E07CCA974BF59B0 /* Pods-GDG.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GDG.debug.xcconfig"; path = "Target Support Files/Pods-GDG/Pods-GDG.debug.xcconfig"; sourceTree = "<group>"; };
 		EC882F9FD15B63C108E20DFC /* Pods-GDG.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GDG.release.xcconfig"; path = "Target Support Files/Pods-GDG/Pods-GDG.release.xcconfig"; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 			children = (
 				2882DD812867383B008A9913 /* RegionCategoryCollectionViewCell.swift */,
 				2882DD822867383B008A9913 /* MyScheduleMeetCollectionViewCell.swift */,
+				28BCEC7A28675BC100A50421 /* RealTimeCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				2882DD832867383B008A9913 /* RegionCategoryCollectionViewCell.swift in Sources */,
 				04BE872F2866E82D00A12956 /* MypageViewController.swift in Sources */,
 				044AD396286724B900A98E74 /* MeetViewController.swift in Sources */,
+				28BCEC7B28675BC100A50421 /* RealTimeCollectionViewCell.swift in Sources */,
 				04BE870F2866E27600A12956 /* AppDelegate.swift in Sources */,
 				04BE87112866E27600A12956 /* SceneDelegate.swift in Sources */,
 				048084B12867130F00B2BF4B /* UIView.swift in Sources */,
