@@ -23,20 +23,7 @@ class HomeViewController: UIViewController {
         label.font = UIFont(name: Constant.fontNotoSansKRBold, size: 20)
         return label
     }()
-    
-    let collectionViewRegionCategory : UICollectionView = {
-        let colllectionView = UICollectionView()
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.scrollDirection = .horizontal
-        flowLayout.minimumLineSpacing = 10
-        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 29, bottom: 0, right: 29)
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = UIColor.clear
-        collectionView.showsHorizontalScrollIndicator = false
-        collectionView.isScrollEnabled = false
-        return colllectionView
-    }()
+
     
     //MARK: 나의 여행 일정에 맞는 모임
     let labelMyScheduleMeet : UILabel = {
@@ -63,19 +50,7 @@ class HomeViewController: UIViewController {
         label.text = "여행 일정 2022.06.25(토) ~ 06.28(월) 3일"
         return label
     }()
-    
-    let collectionViewMyScheduleMeet : UICollectionView = {
-        let colllectionView = UICollectionView()
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.scrollDirection = .horizontal
-        flowLayout.minimumLineSpacing = 10
-        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = UIColor.clear
-        collectionView.showsHorizontalScrollIndicator = false
-        return colllectionView
-    }()
+
     
     //MARK: 실시간 여행 모임
     let labelRealTimeMeet : UILabel = {
@@ -96,18 +71,7 @@ class HomeViewController: UIViewController {
         print("더보기")
     }
     
-    let collectionViewRealTimeMeet : UICollectionView = {
-        let colllectionView = UICollectionView()
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.scrollDirection = .vertical
-        flowLayout.minimumLineSpacing = 10
-        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = UIColor.clear
-        collectionView.showsHorizontalScrollIndicator = false
-        return colllectionView
-    }()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -124,12 +88,6 @@ class HomeViewController: UIViewController {
             make.top.equalTo(viewAD.snp.bottom).offset(28)
             make.leading.equalTo(view.snp.leading).offset(20)
         }
-        view.addSubview(collectionViewRegionCategory)
-        collectionViewRegionCategory.snp.makeConstraints { make in
-            make.top.equalTo(labelRegionCategory.snp.bottom)
-            make.leading.trailing.equalTo(view)
-            make.height.equalTo(92)
-        }
-               
+        
     }
 }
