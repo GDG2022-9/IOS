@@ -14,6 +14,10 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var idTF : UITextField!
     @IBOutlet weak var pwTF : UITextField!
     
+    @IBAction func signUp(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,6 +36,7 @@ class SignUpViewController: UIViewController {
         pwTF.roundUI()
         pwTF.addLeftPadding()
         pwTF.borderBlack()
+        
         
         // Do any additional setup after loading the view.
     }

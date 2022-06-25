@@ -24,7 +24,6 @@
 		04BE872D2866E7DB00A12956 /* Mypage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04BE872C2866E7DB00A12956 /* Mypage.storyboard */; };
 		04BE872F2866E82D00A12956 /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE872E2866E82D00A12956 /* MypageViewController.swift */; };
 		04F85ABB2866EEAC003CD6CA /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04F85ABA2866EEAC003CD6CA /* SignIn.storyboard */; };
-		04F85ABD2866EEEC003CD6CA /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04F85ABC2866EEEC003CD6CA /* SignUp.storyboard */; };
 		04F85ABF2866EF7A003CD6CA /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F85ABE2866EF7A003CD6CA /* SignInViewController.swift */; };
 		04F85AC12866EF85003CD6CA /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F85AC02866EF85003CD6CA /* SignUpViewController.swift */; };
 		1880CF6B7B3EC13A13E58F5D /* Pods_GDG.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A22EC5B494E21C9C215D97E2 /* Pods_GDG.framework */; };
@@ -67,7 +66,6 @@
 		04BE872C2866E7DB00A12956 /* Mypage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Mypage.storyboard; sourceTree = "<group>"; };
 		04BE872E2866E82D00A12956 /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
 		04F85ABA2866EEAC003CD6CA /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
-		04F85ABC2866EEEC003CD6CA /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		04F85ABE2866EF7A003CD6CA /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		04F85AC02866EF85003CD6CA /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		2882DD812867383B008A9913 /* RegionCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -166,7 +164,6 @@
 				04BE87142866E27600A12956 /* Main.storyboard */,
 				04BE872A2866E7CE00A12956 /* Home.storyboard */,
 				04BE872C2866E7DB00A12956 /* Mypage.storyboard */,
-				04F85ABC2866EEEC003CD6CA /* SignUp.storyboard */,
 				04F85ABA2866EEAC003CD6CA /* SignIn.storyboard */,
 				044AD397286724C400A98E74 /* Meet.storyboard */,
 			);
@@ -325,7 +322,6 @@
 				04F85ABB2866EEAC003CD6CA /* SignIn.storyboard in Resources */,
 				2882DD9828673B64008A9913 /* NotoSansKR-Regular.otf in Resources */,
 				2882DD9428673B64008A9913 /* NotoSansKR-Bold.otf in Resources */,
-				04F85ABD2866EEEC003CD6CA /* SignUp.storyboard in Resources */,
 				04BE872D2866E7DB00A12956 /* Mypage.storyboard in Resources */,
 				2882DD9328673B64008A9913 /* NotoSansKR-Light.otf in Resources */,
 				04BE87162866E27600A12956 /* Main.storyboard in Resources */,
@@ -553,7 +549,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 69F5355JYF;
+				DEVELOPMENT_TEAM = TDUR55YWW6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GDG/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -582,7 +578,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 69F5355JYF;
+				DEVELOPMENT_TEAM = TDUR55YWW6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GDG/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

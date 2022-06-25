@@ -17,7 +17,7 @@ class SignInViewController: UIViewController {
     
     let yourAttributes: [NSAttributedString.Key: Any] = [
         .font: UIFont.systemFont(ofSize: 14),
-        .foregroundColor: UIColor.gray,
+        .foregroundColor: UIColor.mainGray,
         .underlineStyle: NSUnderlineStyle.single.rawValue
 
     ] // .double.rawValue, .thick.rawValue
