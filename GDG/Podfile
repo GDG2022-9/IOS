@@ -9,5 +9,6 @@ target 'GDG' do
   pod 'SnapKit', '~> 5.0.0'
   pod 'Alamofire', '~> 5.1'
   pod 'FSCalendar'
+  pod 'PagingKit'
 
 end

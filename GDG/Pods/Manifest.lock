@@ -1,24 +1,28 @@
 PODS:
   - Alamofire (5.5.0)
   - FSCalendar (2.8.4)
+  - PagingKit (1.18.1)
   - SnapKit (5.0.1)
 
 DEPENDENCIES:
   - Alamofire (~> 5.1)
   - FSCalendar
+  - PagingKit
   - SnapKit (~> 5.0.0)
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - FSCalendar
+    - PagingKit
     - SnapKit
 
 SPEC CHECKSUMS:
   Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
   FSCalendar: 2d1d0d9398f12d439f55c1fe0f01525b151b8260
+  PagingKit: 0e7ec4e3791ab55887e129b27f7486a91b761129
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: e8cd3068197c6443766cac68e7842529e9e7522d
+PODFILE CHECKSUM: c936c789d3b757523a03443eff36d86397311110
 
 COCOAPODS: 1.11.2

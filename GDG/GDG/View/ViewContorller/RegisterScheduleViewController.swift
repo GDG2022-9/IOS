@@ -72,8 +72,22 @@ class RegisterScheduleViewController: UIViewController {
         return button
     }()
     @objc func actionRegister() {
-        print(firstDate)
-        print(lastDate)
+        if lastDate == nil {
+            print("아아아")
+            self.dismiss(animated: false)
+        } else {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "YYYY-MM-dd HH:mm:ss"
+            let firstDateStr = dateFormatter.string(from: firstDate ?? Date())
+            let lastDateStr = dateFormatter.string(from: lastDate ?? Date())
+            UserDefaults.standard.set(firstDateStr, forKey: "firstDate")
+            UserDefaults.standard.set(lastDateStr, forKey: "lastDate")
+            Constant.userFirstDate = firstDateStr
+            Constant.userLastDate = lastDateStr
+            print(Constant.userFirstDate)
+            NotificationCenter.default.post(name: NSNotification.Name("upload"), object: nil)
+            self.dismiss(animated: false)
+        }
     }
     
     //MARK: 캘린더 설정

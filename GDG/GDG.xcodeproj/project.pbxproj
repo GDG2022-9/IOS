@@ -27,6 +27,17 @@
 		04F85ABF2866EF7A003CD6CA /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F85ABE2866EF7A003CD6CA /* SignInViewController.swift */; };
 		04F85AC12866EF85003CD6CA /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F85AC02866EF85003CD6CA /* SignUpViewController.swift */; };
 		1880CF6B7B3EC13A13E58F5D /* Pods_GDG.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A22EC5B494E21C9C215D97E2 /* Pods_GDG.framework */; };
+		2822A8152867ADD800199185 /* DetailRegionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2822A8142867ADD800199185 /* DetailRegionViewController.swift */; };
+		2822A8172867B2EA00199185 /* RegionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2822A8162867B2EA00199185 /* RegionViewController.swift */; };
+		2822A81A2867B4C300199185 /* PagingMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2822A8182867B4C300199185 /* PagingMenuTableViewCell.swift */; };
+		2822A81B2867B4C300199185 /* PagingMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2822A8192867B4C300199185 /* PagingMenuTableViewCell.xib */; };
+		2822A81E2867B7C900199185 /* FocusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2822A81C2867B7C900199185 /* FocusTableViewCell.swift */; };
+		2822A81F2867B7C900199185 /* FocusTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2822A81D2867B7C900199185 /* FocusTableViewCell.xib */; };
+		2822A8212867BA9B00199185 /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2822A8202867BA9B00199185 /* FilterCollectionViewCell.swift */; };
+		286112CA28679C2200B2EFCE /* HomeDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286112C928679C2200B2EFCE /* HomeDataManager.swift */; };
+		286112CC28679C2E00B2EFCE /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286112CB28679C2E00B2EFCE /* HomeModel.swift */; };
+		286112CE28679C3C00B2EFCE /* HomeInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286112CD28679C3C00B2EFCE /* HomeInput.swift */; };
+		286112D028679E2700B2EFCE /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286112CF28679E2700B2EFCE /* String.swift */; };
 		2882DD832867383B008A9913 /* RegionCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882DD812867383B008A9913 /* RegionCategoryCollectionViewCell.swift */; };
 		2882DD842867383B008A9913 /* MyScheduleMeetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882DD822867383B008A9913 /* MyScheduleMeetCollectionViewCell.swift */; };
 		2882DD8928673ACA008A9913 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882DD8828673ACA008A9913 /* Constant.swift */; };
@@ -68,6 +79,17 @@
 		04F85ABA2866EEAC003CD6CA /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
 		04F85ABE2866EF7A003CD6CA /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		04F85AC02866EF85003CD6CA /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		2822A8142867ADD800199185 /* DetailRegionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRegionViewController.swift; sourceTree = "<group>"; };
+		2822A8162867B2EA00199185 /* RegionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionViewController.swift; sourceTree = "<group>"; };
+		2822A8182867B4C300199185 /* PagingMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingMenuTableViewCell.swift; sourceTree = "<group>"; };
+		2822A8192867B4C300199185 /* PagingMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PagingMenuTableViewCell.xib; sourceTree = "<group>"; };
+		2822A81C2867B7C900199185 /* FocusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusTableViewCell.swift; sourceTree = "<group>"; };
+		2822A81D2867B7C900199185 /* FocusTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FocusTableViewCell.xib; sourceTree = "<group>"; };
+		2822A8202867BA9B00199185 /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewCell.swift; sourceTree = "<group>"; };
+		286112C928679C2200B2EFCE /* HomeDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataManager.swift; sourceTree = "<group>"; };
+		286112CB28679C2E00B2EFCE /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
+		286112CD28679C3C00B2EFCE /* HomeInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInput.swift; sourceTree = "<group>"; };
+		286112CF28679E2700B2EFCE /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		2882DD812867383B008A9913 /* RegionCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		2882DD822867383B008A9913 /* MyScheduleMeetCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyScheduleMeetCollectionViewCell.swift; sourceTree = "<group>"; };
 		2882DD8828673ACA008A9913 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -110,6 +132,7 @@
 				048084AC2866FA1400B2BF4B /* Button.swift */,
 				048084AE2867128B00B2BF4B /* TextField.swift */,
 				048084B02867130F00B2BF4B /* UIView.swift */,
+				286112CF28679E2700B2EFCE /* String.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -173,6 +196,7 @@
 		04BE87272866E43A00A12956 /* ViewContorller */ = {
 			isa = PBXGroup;
 			children = (
+				286112C828679C0B00B2EFCE /* HomeDataManager */,
 				04BE87282866E73200A12956 /* HomeViewController.swift */,
 				04BE872E2866E82D00A12956 /* MypageViewController.swift */,
 				04F85ABE2866EF7A003CD6CA /* SignInViewController.swift */,
@@ -182,8 +206,20 @@
 				28CB905E2867769900B3DA57 /* MoreRealTimeViewController.swift */,
 				28CB9060286777CB00B3DA57 /* DetailMeetViewController.swift */,
 				28CB90682867892A00B3DA57 /* RegisterScheduleViewController.swift */,
+				2822A8142867ADD800199185 /* DetailRegionViewController.swift */,
+				2822A8162867B2EA00199185 /* RegionViewController.swift */,
 			);
 			path = ViewContorller;
+			sourceTree = "<group>";
+		};
+		286112C828679C0B00B2EFCE /* HomeDataManager */ = {
+			isa = PBXGroup;
+			children = (
+				286112C928679C2200B2EFCE /* HomeDataManager.swift */,
+				286112CB28679C2E00B2EFCE /* HomeModel.swift */,
+				286112CD28679C3C00B2EFCE /* HomeInput.swift */,
+			);
+			path = HomeDataManager;
 			sourceTree = "<group>";
 		};
 		2882DD802867383B008A9913 /* Cell */ = {
@@ -224,6 +260,7 @@
 				2882DD822867383B008A9913 /* MyScheduleMeetCollectionViewCell.swift */,
 				28BCEC7A28675BC100A50421 /* RealTimeCollectionViewCell.swift */,
 				28CB905C2867753B00B3DA57 /* MyScheduleCollectionViewCell.swift */,
+				2822A8202867BA9B00199185 /* FilterCollectionViewCell.swift */,
 			);
 			path = CollectionView;
 			sourceTree = "<group>";
@@ -233,6 +270,10 @@
 			children = (
 				28CB906428677C2600B3DA57 /* DetailTitleTableViewCell.swift */,
 				28CB906628677FD400B3DA57 /* DetailBottomTableViewCell.swift */,
+				2822A8182867B4C300199185 /* PagingMenuTableViewCell.swift */,
+				2822A8192867B4C300199185 /* PagingMenuTableViewCell.xib */,
+				2822A81C2867B7C900199185 /* FocusTableViewCell.swift */,
+				2822A81D2867B7C900199185 /* FocusTableViewCell.xib */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -314,6 +355,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2822A81B2867B4C300199185 /* PagingMenuTableViewCell.xib in Resources */,
 				04BE871B2866E27700A12956 /* LaunchScreen.storyboard in Resources */,
 				044AD398286724C400A98E74 /* Meet.storyboard in Resources */,
 				2882DD9728673B64008A9913 /* NotoSansKR-Medium.otf in Resources */,
@@ -327,6 +369,7 @@
 				04BE87162866E27600A12956 /* Main.storyboard in Resources */,
 				2882DD9528673B64008A9913 /* NotoSansKR-Thin.otf in Resources */,
 				04BE872B2866E7CE00A12956 /* Home.storyboard in Resources */,
+				2822A81F2867B7C900199185 /* FocusTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,13 +424,17 @@
 			files = (
 				2882DD842867383B008A9913 /* MyScheduleMeetCollectionViewCell.swift in Sources */,
 				28CB905F2867769900B3DA57 /* MoreRealTimeViewController.swift in Sources */,
+				2822A8152867ADD800199185 /* DetailRegionViewController.swift in Sources */,
 				28CB9061286777CB00B3DA57 /* DetailMeetViewController.swift in Sources */,
 				048084AD2866FA1400B2BF4B /* Button.swift in Sources */,
 				2882DD8928673ACA008A9913 /* Constant.swift in Sources */,
+				2822A8212867BA9B00199185 /* FilterCollectionViewCell.swift in Sources */,
 				28CB905B28676F0D00B3DA57 /* MoreMyScheduleMeetViewController.swift in Sources */,
 				048084AF2867128B00B2BF4B /* TextField.swift in Sources */,
 				28CB905D2867753B00B3DA57 /* MyScheduleCollectionViewCell.swift in Sources */,
 				04959F092867374C00A08FD3 /* Color.swift in Sources */,
+				2822A81E2867B7C900199185 /* FocusTableViewCell.swift in Sources */,
+				2822A81A2867B4C300199185 /* PagingMenuTableViewCell.swift in Sources */,
 				28CB906528677C2600B3DA57 /* DetailTitleTableViewCell.swift in Sources */,
 				04F85ABF2866EF7A003CD6CA /* SignInViewController.swift in Sources */,
 				04F85AC12866EF85003CD6CA /* SignUpViewController.swift in Sources */,
@@ -395,12 +442,17 @@
 				2882DD832867383B008A9913 /* RegionCategoryCollectionViewCell.swift in Sources */,
 				04BE872F2866E82D00A12956 /* MypageViewController.swift in Sources */,
 				044AD396286724B900A98E74 /* MeetViewController.swift in Sources */,
+				286112D028679E2700B2EFCE /* String.swift in Sources */,
 				28CB906728677FD400B3DA57 /* DetailBottomTableViewCell.swift in Sources */,
+				2822A8172867B2EA00199185 /* RegionViewController.swift in Sources */,
 				28BCEC7B28675BC100A50421 /* RealTimeCollectionViewCell.swift in Sources */,
 				04BE870F2866E27600A12956 /* AppDelegate.swift in Sources */,
 				04BE87112866E27600A12956 /* SceneDelegate.swift in Sources */,
 				048084B12867130F00B2BF4B /* UIView.swift in Sources */,
 				04959F0B2867375200A08FD3 /* UiViewController.swift in Sources */,
+				286112CA28679C2200B2EFCE /* HomeDataManager.swift in Sources */,
+				286112CE28679C3C00B2EFCE /* HomeInput.swift in Sources */,
+				286112CC28679C2E00B2EFCE /* HomeModel.swift in Sources */,
 				04BE87292866E73200A12956 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

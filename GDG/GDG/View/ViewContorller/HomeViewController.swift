@@ -10,19 +10,85 @@ import SnapKit
 
 class HomeViewController: UIViewController {
     let arrayRegion = ["수도권", "충청권", "강원권", "경상권", "전라권"]
-    let boolHaveMySchedule : Bool = false
+    var boolHaveMySchedule : Bool = false
+    var firstDay = ""
+    var lastDay = ""
+    func dataFormmater(dateStr : Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let converData = dateFormatter.date(from: dateFormatter.string(from: dateStr))
+        let myDateFormatter = DateFormatter()
+        myDateFormatter.dateFormat = "yyyy년 MM월 dd일"
+        myDateFormatter.locale = Locale(identifier: "ko_KR")
+        let convertStr = myDateFormatter.string(from: converData!)
+        return convertStr
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Constant.userLastDate = UserDefaults.standard.value(forKey: "lastDate") as? String ?? ""
+        Constant.userFirstDate = UserDefaults.standard.value(forKey: "firstDate") as? String ?? ""
+        
+        if Constant.userLastDate == "" {
+            boolHaveMySchedule = false
+        } else {
+            boolHaveMySchedule = true
+            let firstDate = Constant.userFirstDate.toDate()
+            let lastDate = Constant.userLastDate.toDate()
+            firstDay = dataFormmater(dateStr: firstDate ?? Date())
+            lastDay = dataFormmater(dateStr: lastDate ?? Date())
+            labelMyScheduleDate.text = "\(firstDay) ~ \(lastDay)"
+
+        }
+        
         navigationItem.titleView = imageViewLogo
         setScrollView()
         setAD()
         setRegionCategory()
         setMyScheduleMeet()
-       setRealTime()
+        setRealTime()
         
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(buttonHidden), name: Notification.Name("middleButtonHidden"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(buttonApper), name: Notification.Name("middleButtonAppear"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(update), name: Notification.Name("upload"), object: nil)
+    }
+    
+    @objc func buttonHidden() {
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    @objc func buttonApper() {
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    @objc func update() {
+        viewBackNoSchedule.alpha = 0
+        buttonMoreMyScheduleMeet.alpha = 1
+        labelMyScheduleText.alpha = 1
+        labelMyScheduleDate.alpha = 1
+        labelMyScheduleDays.alpha = 1
+        collectionViewMyScheduleMeet.alpha = 1
+        labelRealTimeMeet.snp.removeConstraints()
+        buttonMoreRealTimeMeet.snp.removeConstraints()
+        collectionViewRealTime.snp.removeConstraints()
+        labelRealTimeMeet.snp.makeConstraints { make in
+            make.leading.equalTo(labelRegionCategory)
+            make.top.equalTo(collectionViewMyScheduleMeet.snp.bottom).offset(24)
+        }
+            buttonMoreRealTimeMeet.snp.makeConstraints { make in
+            make.centerY.equalTo(labelRealTimeMeet)
+            make.trailing.equalTo(viewContent).offset(-20)
+        }
+
+        collectionViewRealTime.snp.makeConstraints { make in
+            make.top.equalTo(labelRealTimeMeet.snp.bottom)
+            make.leading.trailing.equalTo(viewContent)
+            make.height.equalTo(730)
+        }
+    }
+    override func viewWillAppear(_ animated: Bool) {
         if boolHaveMySchedule {
-            
             viewBackNoSchedule.alpha = 0
             buttonMoreMyScheduleMeet.alpha = 1
             labelMyScheduleText.alpha = 1
@@ -37,16 +103,6 @@ class HomeViewController: UIViewController {
             labelMyScheduleDays.alpha = 0
             collectionViewMyScheduleMeet.alpha = 0
         }
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(buttonHidden), name: Notification.Name("middleButtonHidden"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(buttonApper), name: Notification.Name("middleButtonAppear"), object: nil)
-    }
-    
-    @objc func buttonHidden() {
-        self.tabBarController?.tabBar.isHidden = true
-    }
-    @objc func buttonApper() {
-        self.tabBarController?.tabBar.isHidden = false
     }
     
    override func viewDidLayoutSubviews() {
@@ -315,7 +371,7 @@ class HomeViewController: UIViewController {
         let label = UILabel()
         label.text = "실시간 밋트"
         label.textColor = .black
-        label.font = UIFont(name: Constant.fontNotoSansKRBold, size: 20)
+        label.font = UIFont(name: Constant.fontNotoSansKRBold, size: 16)
         return label
     }()
     let buttonMoreRealTimeMeet :  UIButton = {
@@ -347,7 +403,11 @@ class HomeViewController: UIViewController {
         viewContent.addSubview(labelRealTimeMeet)
         labelRealTimeMeet.snp.makeConstraints { make in
             make.leading.equalTo(labelRegionCategory)
-            make.top.equalTo(collectionViewMyScheduleMeet.snp.bottom).offset(24)
+            if boolHaveMySchedule {
+                make.top.equalTo(collectionViewMyScheduleMeet.snp.bottom).offset(24)
+            } else {
+                make.top.equalTo(viewBackNoSchedule.snp.bottom).offset(24)
+            }
         }
         
         viewContent.addSubview(buttonMoreRealTimeMeet)
@@ -356,6 +416,8 @@ class HomeViewController: UIViewController {
             make.trailing.equalTo(viewContent).offset(-20)
         }
 
+        
+        
         collectionViewRealTime.delegate = self
         collectionViewRealTime.dataSource = self
         collectionViewRealTime.register(RealTimeCollectionViewCell.self, forCellWithReuseIdentifier: RealTimeCollectionViewCell.resueidentifier)
@@ -398,6 +460,7 @@ extension HomeViewController : UIScrollViewDelegate, UICollectionViewDelegate, U
             cell.layer.shadowOpacity = 0.15
             cell.layer.shadowRadius = 10
             cell.contentView.clipsToBounds = true
+
             return cell
         }
         else {
@@ -409,6 +472,7 @@ extension HomeViewController : UIScrollViewDelegate, UICollectionViewDelegate, U
             cell.layer.shadowOpacity = 0.15
             cell.layer.shadowRadius = 10
             cell.contentView.clipsToBounds = true
+            
             return cell
         }
     }
@@ -431,7 +495,9 @@ extension HomeViewController : UIScrollViewDelegate, UICollectionViewDelegate, U
             let nextVC = DetailMeetViewController()
             self.navigationController?.pushViewController(nextVC, animated: true)
         } else {
-            
+            let nextVC = DetailRegionViewController()
+            self.navigationController?.pushViewController(nextVC, animated: true)
         }
     }
+    
 }
