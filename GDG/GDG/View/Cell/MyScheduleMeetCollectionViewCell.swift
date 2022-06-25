@@ -51,7 +51,7 @@ class MyScheduleMeetCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.text = "경상권*경주 06.25 19:00"
         label.textColor = .white
-        label.font = UIFont(name: Constant.fontNotoSansKRRegular, size: 16)
+        label.font = UIFont(name: Constant.fontNotoSansKRRegular, size: 12)
         return label
     }()
     
@@ -64,14 +64,14 @@ class MyScheduleMeetCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.text = "00명 참여중"
         label.textColor = .mainColor
-        label.font = UIFont(name: Constant.fontNotoSansKRRegular, size: 12)
+        label.font = UIFont(name: Constant.fontNotoSansKRBold, size: 12)
         return label
     }()
     let labelRemainTime : UILabel = {
         let label = UILabel()
         label.text = "1시간 남음"
         label.textColor = .mainColor
-        label.font = UIFont(name: Constant.fontNotoSansKRRegular, size: 12)
+        label.font = UIFont(name: Constant.fontNotoSansKRBold, size: 12)
         return label
     }()
     

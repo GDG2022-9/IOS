@@ -10,10 +10,11 @@ import SnapKit
 
 class HomeViewController: UIViewController {
     let arrayRegion = ["수도권", "충청권", "강원권", "경상권", "전라권"]
-    let boolHaveMySchedule : Bool = false
+    let boolHaveMySchedule : Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.titleView = imageViewLogo
         setScrollView()
         setAD()
         setRegionCategory()
@@ -21,14 +22,15 @@ class HomeViewController: UIViewController {
        setRealTime()
         
         if boolHaveMySchedule {
-            viewNoSchedule.alpha = 0
+            
+            viewBackNoSchedule.alpha = 0
             buttonMoreMyScheduleMeet.alpha = 1
             labelMyScheduleText.alpha = 1
             labelMyScheduleDate.alpha = 1
             labelMyScheduleDays.alpha = 1
             collectionViewMyScheduleMeet.alpha = 1
         } else {
-            viewNoSchedule.alpha = 1
+            viewBackNoSchedule.alpha = 1
             buttonMoreMyScheduleMeet.alpha = 0
             labelMyScheduleText.alpha = 0
             labelMyScheduleDate.alpha = 0
@@ -41,6 +43,12 @@ class HomeViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         viewNoSchedule.setLineDot(view: viewNoSchedule, color: .mainGray, radius: 10)
     }
+    let imageViewLogo : UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "LogoTitle")
+        imageView.contentMode = .scaleAspectFill
+        return imageView
+    }()
     //MARK: 스크롤뷰 구현
     let scrollViewContent : UIScrollView = {
         let scrollView = UIScrollView()
@@ -69,8 +77,13 @@ class HomeViewController: UIViewController {
     //MARK: 광고 뷰
     let viewAD: UIView = {
         let view = UIView()
-        view.backgroundColor = .gray
         return view
+    }()
+    let imageViewAD: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "Banner")
+        imageView.contentMode = .scaleAspectFill
+        return imageView
     }()
     
     func setAD() {
@@ -79,6 +92,11 @@ class HomeViewController: UIViewController {
         viewAD.snp.makeConstraints { make in
             make.leading.trailing.equalTo(view)
             make.height.equalTo(height)
+        }
+        
+        viewContent.addSubview(imageViewAD)
+        imageViewAD.snp.makeConstraints { make in
+            make.edges.equalTo(viewAD)
         }
     }
     
@@ -187,7 +205,8 @@ class HomeViewController: UIViewController {
         return button
     }()
     @objc func actionGoMoreMySchedulMeet() {
-        print("더보기")
+        let nextVC = MoreMyScheduleMeetViewController()
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
     let labelMyScheduleText : UILabel = {
@@ -240,7 +259,7 @@ class HomeViewController: UIViewController {
             make.height.equalTo(112)
         }
         
-        viewContent.addSubview(viewNoSchedule)
+        viewBackNoSchedule.addSubview(viewNoSchedule)
         viewNoSchedule.snp.makeConstraints { make in
             make.edges.equalTo(viewBackNoSchedule)
         }
@@ -290,13 +309,15 @@ class HomeViewController: UIViewController {
     }()
     let buttonMoreRealTimeMeet :  UIButton = {
         let button = UIButton()
-        button.addTarget(self, action: #selector(actionGoMoreMySchedulMeet), for: .touchUpInside)
-        button.setTitle("더 보기", for: .normal)
+        button.addTarget(self, action: #selector(actionGoMoreRealTimeMeet), for: .touchUpInside)
+        button.setTitle("더보기", for: .normal)
+        button.titleLabel?.font = UIFont(name: Constant.fontNotoSansKRBold, size: 12)
         button.setTitleColor(.gray, for: .normal)
         return button
     }()
     @objc func actionGoMoreRealTimeMeet() {
-        print("더보기")
+        let nextVC = MoreRealTimeViewController()
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
     let collectionViewRealTime : UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
@@ -355,6 +376,7 @@ extension HomeViewController : UIScrollViewDelegate, UICollectionViewDelegate, U
                 return UICollectionViewCell()
             }
             cell.labelRegionName.text = arrayRegion[indexPath.row]
+            cell.imageViewRegion.image = UIImage(named: arrayRegion[indexPath.row])
             return cell
         } else if collectionView == collectionViewMyScheduleMeet {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyScheduleMeetCollectionViewCell.resueidentifier, for: indexPath) as? MyScheduleMeetCollectionViewCell else {

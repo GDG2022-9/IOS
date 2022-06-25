@@ -38,6 +38,10 @@
 		2882DD9728673B64008A9913 /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2882DD9128673B64008A9913 /* NotoSansKR-Medium.otf */; };
 		2882DD9828673B64008A9913 /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2882DD9228673B64008A9913 /* NotoSansKR-Regular.otf */; };
 		28BCEC7B28675BC100A50421 /* RealTimeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BCEC7A28675BC100A50421 /* RealTimeCollectionViewCell.swift */; };
+		28CB905B28676F0D00B3DA57 /* MoreMyScheduleMeetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CB905A28676F0D00B3DA57 /* MoreMyScheduleMeetViewController.swift */; };
+		28CB905D2867753B00B3DA57 /* MyScheduleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CB905C2867753B00B3DA57 /* MyScheduleCollectionViewCell.swift */; };
+		28CB905F2867769900B3DA57 /* MoreRealTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CB905E2867769900B3DA57 /* MoreRealTimeViewController.swift */; };
+		28CB9061286777CB00B3DA57 /* DetailMeetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CB9060286777CB00B3DA57 /* DetailMeetViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +77,10 @@
 		2882DD9128673B64008A9913 /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
 		2882DD9228673B64008A9913 /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
 		28BCEC7A28675BC100A50421 /* RealTimeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeCollectionViewCell.swift; sourceTree = "<group>"; };
+		28CB905A28676F0D00B3DA57 /* MoreMyScheduleMeetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreMyScheduleMeetViewController.swift; sourceTree = "<group>"; };
+		28CB905C2867753B00B3DA57 /* MyScheduleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScheduleCollectionViewCell.swift; sourceTree = "<group>"; };
+		28CB905E2867769900B3DA57 /* MoreRealTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreRealTimeViewController.swift; sourceTree = "<group>"; };
+		28CB9060286777CB00B3DA57 /* DetailMeetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMeetViewController.swift; sourceTree = "<group>"; };
 		A22EC5B494E21C9C215D97E2 /* Pods_GDG.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GDG.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAF9E7209E07CCA974BF59B0 /* Pods-GDG.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GDG.debug.xcconfig"; path = "Target Support Files/Pods-GDG/Pods-GDG.debug.xcconfig"; sourceTree = "<group>"; };
 		EC882F9FD15B63C108E20DFC /* Pods-GDG.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GDG.release.xcconfig"; path = "Target Support Files/Pods-GDG/Pods-GDG.release.xcconfig"; sourceTree = "<group>"; };
@@ -167,6 +175,9 @@
 				04F85ABE2866EF7A003CD6CA /* SignInViewController.swift */,
 				04F85AC02866EF85003CD6CA /* SignUpViewController.swift */,
 				044AD395286724B900A98E74 /* MeetViewController.swift */,
+				28CB905A28676F0D00B3DA57 /* MoreMyScheduleMeetViewController.swift */,
+				28CB905E2867769900B3DA57 /* MoreRealTimeViewController.swift */,
+				28CB9060286777CB00B3DA57 /* DetailMeetViewController.swift */,
 			);
 			path = ViewContorller;
 			sourceTree = "<group>";
@@ -177,6 +188,7 @@
 				2882DD812867383B008A9913 /* RegionCategoryCollectionViewCell.swift */,
 				2882DD822867383B008A9913 /* MyScheduleMeetCollectionViewCell.swift */,
 				28BCEC7A28675BC100A50421 /* RealTimeCollectionViewCell.swift */,
+				28CB905C2867753B00B3DA57 /* MyScheduleCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -347,9 +359,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2882DD842867383B008A9913 /* MyScheduleMeetCollectionViewCell.swift in Sources */,
+				28CB905F2867769900B3DA57 /* MoreRealTimeViewController.swift in Sources */,
+				28CB9061286777CB00B3DA57 /* DetailMeetViewController.swift in Sources */,
 				048084AD2866FA1400B2BF4B /* Button.swift in Sources */,
 				2882DD8928673ACA008A9913 /* Constant.swift in Sources */,
+				28CB905B28676F0D00B3DA57 /* MoreMyScheduleMeetViewController.swift in Sources */,
 				048084AF2867128B00B2BF4B /* TextField.swift in Sources */,
+				28CB905D2867753B00B3DA57 /* MyScheduleCollectionViewCell.swift in Sources */,
 				04959F092867374C00A08FD3 /* Color.swift in Sources */,
 				04F85ABF2866EF7A003CD6CA /* SignInViewController.swift in Sources */,
 				04F85AC12866EF85003CD6CA /* SignUpViewController.swift in Sources */,

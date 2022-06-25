@@ -21,7 +21,6 @@ class RegionCategoryCollectionViewCell: UICollectionViewCell {
     }
     let viewContent : UIView = {
         let view = UIView()
-        view.backgroundColor = .red
         return view
     }()
     let imageViewRegion: UIImageView = {
