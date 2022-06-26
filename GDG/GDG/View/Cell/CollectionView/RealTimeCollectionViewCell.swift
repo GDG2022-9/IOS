@@ -36,7 +36,7 @@ class RealTimeCollectionViewCell: UICollectionViewCell {
     let viewFilter : UIView = {
         let view = UIView()
         view.backgroundColor = .mainBlack
-        view.alpha = 0.05
+        view.alpha = 0.2
         return view
     }()
     

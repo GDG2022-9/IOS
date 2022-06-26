@@ -16,17 +16,6 @@ class MyScheduleMeetCollectionViewCell: UICollectionViewCell {
         
     }
     override func layoutSubviews() {
-        if viewFilter.layer.sublayers == nil {
-            self.viewFilter.setGradient(color1: UIColor(hex: 0x1c3240, alpha: 0.8), color2: UIColor(hex: 0x1c3240, alpha: 0.8))
-        } else {
-            let gradient: CAGradientLayer = CAGradientLayer()
-            gradient.colors = [UIColor(hex: 0x1c3240, alpha: 0.8).cgColor,UIColor(hex: 0x1c3240, alpha: 0.8).cgColor]
-            gradient.locations = [0.0 , 1.0]
-            gradient.startPoint = CGPoint(x: 0.5, y: 0.0)
-            gradient.endPoint = CGPoint(x: 0.5, y: 1.0)
-            gradient.frame = bounds
-            self.viewFilter.layer.sublayers![0] = gradient
-        }
     }
     
     required init?(coder: NSCoder) {
@@ -49,7 +38,7 @@ class MyScheduleMeetCollectionViewCell: UICollectionViewCell {
     let viewFilter : UIView = {
         let view = UIView()
         view.backgroundColor = .mainBlack
-        view.alpha = 1
+        view.alpha = 0.1
         return view
     }()
     
