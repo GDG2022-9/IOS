@@ -11,7 +11,6 @@
 		044AD398286724C400A98E74 /* Meet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 044AD397286724C400A98E74 /* Meet.storyboard */; };
 		048084AD2866FA1400B2BF4B /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048084AC2866FA1400B2BF4B /* Button.swift */; };
 		048084AF2867128B00B2BF4B /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048084AE2867128B00B2BF4B /* TextField.swift */; };
-		048084B12867130F00B2BF4B /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048084B02867130F00B2BF4B /* UIView.swift */; };
 		04959F092867374C00A08FD3 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04959F082867374C00A08FD3 /* Color.swift */; };
 		04959F0B2867375200A08FD3 /* UiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04959F0A2867375200A08FD3 /* UiViewController.swift */; };
 		04BE870F2866E27600A12956 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE870E2866E27600A12956 /* AppDelegate.swift */; };
@@ -34,6 +33,8 @@
 		2822A81E2867B7C900199185 /* FocusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2822A81C2867B7C900199185 /* FocusTableViewCell.swift */; };
 		2822A81F2867B7C900199185 /* FocusTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2822A81D2867B7C900199185 /* FocusTableViewCell.xib */; };
 		2822A8212867BA9B00199185 /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2822A8202867BA9B00199185 /* FilterCollectionViewCell.swift */; };
+		2822A8232867DDE400199185 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2822A8222867DDE400199185 /* UIView.swift */; };
+		2822A8252867DF4A00199185 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2822A8242867DF4A00199185 /* InfoPlist.strings */; };
 		286112CA28679C2200B2EFCE /* HomeDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286112C928679C2200B2EFCE /* HomeDataManager.swift */; };
 		286112CC28679C2E00B2EFCE /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286112CB28679C2E00B2EFCE /* HomeModel.swift */; };
 		286112CE28679C3C00B2EFCE /* HomeInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286112CD28679C3C00B2EFCE /* HomeInput.swift */; };
@@ -62,7 +63,6 @@
 		044AD397286724C400A98E74 /* Meet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Meet.storyboard; sourceTree = "<group>"; };
 		048084AC2866FA1400B2BF4B /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		048084AE2867128B00B2BF4B /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
-		048084B02867130F00B2BF4B /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		04959F082867374C00A08FD3 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		04959F0A2867375200A08FD3 /* UiViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UiViewController.swift; sourceTree = "<group>"; };
 		04BE870B2866E27600A12956 /* GDG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GDG.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +86,8 @@
 		2822A81C2867B7C900199185 /* FocusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusTableViewCell.swift; sourceTree = "<group>"; };
 		2822A81D2867B7C900199185 /* FocusTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FocusTableViewCell.xib; sourceTree = "<group>"; };
 		2822A8202867BA9B00199185 /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewCell.swift; sourceTree = "<group>"; };
+		2822A8222867DDE400199185 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		2822A8242867DF4A00199185 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		286112C928679C2200B2EFCE /* HomeDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataManager.swift; sourceTree = "<group>"; };
 		286112CB28679C2E00B2EFCE /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		286112CD28679C3C00B2EFCE /* HomeInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInput.swift; sourceTree = "<group>"; };
@@ -131,8 +133,8 @@
 				04959F082867374C00A08FD3 /* Color.swift */,
 				048084AC2866FA1400B2BF4B /* Button.swift */,
 				048084AE2867128B00B2BF4B /* TextField.swift */,
-				048084B02867130F00B2BF4B /* UIView.swift */,
 				286112CF28679E2700B2EFCE /* String.swift */,
+				2822A8222867DDE400199185 /* UIView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				04BE870E2866E27600A12956 /* AppDelegate.swift */,
+				2822A8242867DF4A00199185 /* InfoPlist.strings */,
 				04BE87102866E27600A12956 /* SceneDelegate.swift */,
 				2882DD8C28673B64008A9913 /* Font */,
 				2882DD8728673ACA008A9913 /* Constant */,
@@ -356,6 +359,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2822A81B2867B4C300199185 /* PagingMenuTableViewCell.xib in Resources */,
+				2822A8252867DF4A00199185 /* InfoPlist.strings in Resources */,
 				04BE871B2866E27700A12956 /* LaunchScreen.storyboard in Resources */,
 				044AD398286724C400A98E74 /* Meet.storyboard in Resources */,
 				2882DD9728673B64008A9913 /* NotoSansKR-Medium.otf in Resources */,
@@ -422,6 +426,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2822A8232867DDE400199185 /* UIView.swift in Sources */,
 				2882DD842867383B008A9913 /* MyScheduleMeetCollectionViewCell.swift in Sources */,
 				28CB905F2867769900B3DA57 /* MoreRealTimeViewController.swift in Sources */,
 				2822A8152867ADD800199185 /* DetailRegionViewController.swift in Sources */,
@@ -448,7 +453,6 @@
 				28BCEC7B28675BC100A50421 /* RealTimeCollectionViewCell.swift in Sources */,
 				04BE870F2866E27600A12956 /* AppDelegate.swift in Sources */,
 				04BE87112866E27600A12956 /* SceneDelegate.swift in Sources */,
-				048084B12867130F00B2BF4B /* UIView.swift in Sources */,
 				04959F0B2867375200A08FD3 /* UiViewController.swift in Sources */,
 				286112CA28679C2200B2EFCE /* HomeDataManager.swift in Sources */,
 				286112CE28679C3C00B2EFCE /* HomeInput.swift in Sources */,
@@ -601,7 +605,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TDUR55YWW6;
+				DEVELOPMENT_TEAM = 69F5355JYF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GDG/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -630,7 +634,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TDUR55YWW6;
+				DEVELOPMENT_TEAM = 69F5355JYF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GDG/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

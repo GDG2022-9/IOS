@@ -65,6 +65,7 @@ class HomeViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = false
     }
     @objc func update() {
+        boolHaveMySchedule = true
         viewBackNoSchedule.alpha = 0
         buttonMoreMyScheduleMeet.alpha = 1
         labelMyScheduleText.alpha = 1
@@ -229,6 +230,7 @@ class HomeViewController: UIViewController {
         
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "plus")
+        imageView.tintColor = .mainGray
         imageView.contentMode = .scaleAspectFit
         
         let label = UILabel()

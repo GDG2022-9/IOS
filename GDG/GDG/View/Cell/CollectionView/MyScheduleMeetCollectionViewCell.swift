@@ -15,6 +15,19 @@ class MyScheduleMeetCollectionViewCell: UICollectionViewCell {
         setContentView()
         
     }
+    override func layoutSubviews() {
+        if viewFilter.layer.sublayers == nil {
+            self.viewFilter.setGradient(color1: UIColor(hex: 0x1c3240, alpha: 0.8), color2: UIColor(hex: 0x1c3240, alpha: 0.8))
+        } else {
+            let gradient: CAGradientLayer = CAGradientLayer()
+            gradient.colors = [UIColor(hex: 0x1c3240, alpha: 0.8).cgColor,UIColor(hex: 0x1c3240, alpha: 0.8).cgColor]
+            gradient.locations = [0.0 , 1.0]
+            gradient.startPoint = CGPoint(x: 0.5, y: 0.0)
+            gradient.endPoint = CGPoint(x: 0.5, y: 1.0)
+            gradient.frame = bounds
+            self.viewFilter.layer.sublayers![0] = gradient
+        }
+    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -28,6 +41,7 @@ class MyScheduleMeetCollectionViewCell: UICollectionViewCell {
     let imageViewMeet : UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
+        imageView.image = UIImage(named: "image1")
         imageView.backgroundColor = .mainColor
         return imageView
     }()
@@ -35,13 +49,13 @@ class MyScheduleMeetCollectionViewCell: UICollectionViewCell {
     let viewFilter : UIView = {
         let view = UIView()
         view.backgroundColor = .mainBlack
-        view.alpha = 0.05
+        view.alpha = 1
         return view
     }()
     
     let labelMeetTitle : UILabel = {
         let label = UILabel()
-        label.text = "밋트 제목"
+        label.text = "게스트 하우스에서 다같이 파티 어때요?"
         label.textColor = .white
         label.font = UIFont(name: Constant.fontNotoSansKRBold, size: 16)
         return label
@@ -62,7 +76,7 @@ class MyScheduleMeetCollectionViewCell: UICollectionViewCell {
     }()
     let labelParticipationMember : UILabel = {
         let label = UILabel()
-        label.text = "00명 참여중"
+        label.text = "4명 참여중"
         label.textColor = .mainColor
         label.font = UIFont(name: Constant.fontNotoSansKRBold, size: 12)
         return label
@@ -85,7 +99,7 @@ class MyScheduleMeetCollectionViewCell: UICollectionViewCell {
         imageViewMeet.snp.makeConstraints { make in
             make.edges.equalTo(viewContent)
         }
-        viewContent.addSubview(viewFilter)
+        imageViewMeet.addSubview(viewFilter)
         viewFilter.snp.makeConstraints { make in
             make.edges.equalTo(viewContent)
         }

@@ -7,9 +7,10 @@
 
 import UIKit
 
-class MeetViewController: UIViewController {
+class MeetViewController: UIViewController, UINavigationBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
+        imagePickerView.delegate = self
         setView()
         setTitle()
         setDiv()
@@ -21,12 +22,42 @@ class MeetViewController: UIViewController {
         setDetail3()
         setDetail4()
         setMeetBtn()
-        self.navigationItem.title = "밋트 등록하기"
+        setNotification()
+        navigationBarSet()
         // Do any additional setup after loading the view.
+    }
+    
+    // MARK: 네비게이션 바
+    lazy var leftButton: UIBarButtonItem = {
+        let button = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: #selector(actionBackButton))
+        button.tag = 1
+        button.tintColor = .mainGray
+        return button
+    }()
+    func navigationBarSet() {
+        navigationController?.navigationBar.backgroundColor = UIColor.white
+        navigationController?.navigationBar.delegate = self
+
+        let navItem = UINavigationItem()
+        navItem.leftBarButtonItem = self.leftButton
+        navItem.title = "밋트 등록하기"
+        navigationController?.navigationBar.items = [navItem]
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.layoutIfNeeded()
+    }
+    @objc func actionBackButton() {
+        self.tabBarController?.selectedIndex = 0
     }
     //MARK: touch
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
             self.view.endEditing(true)
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.post(name: Notification.Name("middleButtonAppear"), object: nil)
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.post(name: Notification.Name("middleButtonHidden"), object: nil)
     }
     //MARK: 초기화
     let viewContent : UIView = {
@@ -94,8 +125,20 @@ class MeetViewController: UIViewController {
         return view
     }()
     
+    let imageViewBack : UIImageView = {
+        let imageViewBack = UIImageView()
+        imageViewBack.backgroundColor = .clear
+        imageViewBack.clipsToBounds = true
+        imageViewBack.layer.cornerRadius = 10
+        imageViewBack.contentMode = .scaleAspectFill
+        imageViewBack.layer.zPosition = 999
+        return imageViewBack
+    }()
+    
     let viewPicture : UIView = {
         let view = UIView()
+        
+        
         
         let imageView = UIImageView()
         imageView.image = UIImage(named: "Vector")
@@ -129,8 +172,11 @@ class MeetViewController: UIViewController {
         
         return view
     }()
+    let imagePickerView =  UIImagePickerController()
+    
     @objc func actionSetPicture() {
-        print("클릭")
+        self.imagePickerView.sourceType = .photoLibrary
+        self.present(self.imagePickerView, animated: true, completion: nil)
     }
 
     func setMyScheduleMeet() {
@@ -145,6 +191,11 @@ class MeetViewController: UIViewController {
 
         viewContent.addSubview(viewPicture)
         viewPicture.snp.makeConstraints { make in
+            make.edges.equalTo(viewBackPicture)
+        }
+        
+        viewContent.addSubview(imageViewBack)
+        imageViewBack.snp.makeConstraints { make in
             make.edges.equalTo(viewBackPicture)
         }
     }
@@ -391,7 +442,7 @@ class MeetViewController: UIViewController {
         return button
     }()
     @objc func actionMakeMeet() {
-        print("밋트 생성")
+        self.tabBarController?.selectedIndex = 0
     }
     func setMeetBtn(){
         viewContent.addSubview(buttonMakeMeet)
@@ -413,4 +464,50 @@ class MeetViewController: UIViewController {
     }
     */
 
+}
+
+extension MeetViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            self.imageViewBack.image = image
+        }
+        
+        dismiss(animated: true)
+    }
+}
+
+// MARK: 키보드가 나올 때 화면 자체를 올려주는 기능 구성품
+extension MeetViewController {
+    func setNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    // 노티피케이션을 제거하는 메서드
+    func removeKeyboardNotifications(){
+        // 키보드가 나타날 때 앱에게 알리는 메서드 제거
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification , object: nil)
+        // 키보드가 사라질 때 앱에게 알리는 메서드 제거
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil) }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+           if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+               if viewTitle.isEditing {
+                   
+               } else {
+                   if self.view.frame.origin.y == 0 {
+                       self.view.frame.origin.y -= (keyboardSize.height - 130)
+                   }
+               }
+           }
+       }
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if viewTitle.isEditing {
+            
+        } else {
+            if self.view.frame.origin.y != 0 {
+                self.view.frame.origin.y = 0
+            }
+        }
+            
+        }
 }

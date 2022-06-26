@@ -28,6 +28,7 @@ class RealTimeCollectionViewCell: UICollectionViewCell {
     let imageViewMeet : UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
+        imageView.image = UIImage(named: "image2")
         imageView.backgroundColor = .mainColor
         return imageView
     }()
@@ -41,7 +42,7 @@ class RealTimeCollectionViewCell: UICollectionViewCell {
     
     let labelMeetTitle : UILabel = {
         let label = UILabel()
-        label.text = "밋트 제목"
+        label.text = "제가 맛집아는데, 간맥 한 잔 할까요?"
         label.textColor = .white
         label.font = UIFont(name: Constant.fontNotoSansKRBold, size: 16)
         return label
@@ -62,7 +63,7 @@ class RealTimeCollectionViewCell: UICollectionViewCell {
     }()
     let labelParticipationMember : UILabel = {
         let label = UILabel()
-        label.text = "00명 참여중"
+        label.text = "10명 참여중"
         label.textColor = .mainColor
         label.font = UIFont(name: Constant.fontNotoSansKRBold, size: 12)
         return label
